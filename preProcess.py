@@ -18,9 +18,10 @@ def preProcess(fileName):
 
 def scmTF(data):
     scmData = []
+    coEff = 1 / float(data[maxTemp])
     for point in data:
         numPoint = float(point)
-        voltage = (9000 * numPoint * 0.001 + 12.45) / 24.9
+        voltage = 9 * numPoint * coEff + 0.5
         scmData.append(voltage)
     return scmData
 
